@@ -35,25 +35,12 @@ else{
     $createdatabase = "CREATE DATABASE $nom_site";
     $conn->exec($createdatabase);
 
-
-    /*$base_client = $connection->prepare("CREATE DATABASE :nombd");
-    $base_client -> bindParam("nombd", $nomsite,PDO::PARAM_STR);
-    $base_client -> execute();*/
-
     $phpmyadmin = $connection->prepare("CREATE USER jaume1@'localhost' IDENTIFIED BY '1234'");
     $phpmyadmin->execute();
 
     $permisos = $connection->prepare("GRANT ALL PRIVILEGES ON :dbclient TO jaume1@localhost");
     $permisos -> bindParam(":dbclient", $nomsite,PDO::PARAM_STR);
     $permisos->execute();
-
-
-
-
-
-
-
-   
 
     header('Location: panell.html');
 }
