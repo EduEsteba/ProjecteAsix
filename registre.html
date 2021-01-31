@@ -3,28 +3,22 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link href="css.css"rel="stylesheet" type="text/css">
+        <link href="login.css"rel="stylesheet" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>REGISTRE</h1>
-        <div class="wrapper fadeInDown">
-        
-            <div id="formContent">
-          
-              <div class="fadeIn first">
-                <img src="" id="icon" alt="User Icon" />
-              </div>
-          
-              <form method="POST" action="registre.php" name="login">
-                <input type="text" id="login" class="fadeIn second" name="usuari" placeholder="Usuari">
-                <input type="text" id="password" class="fadeIn third" name="contrasenya" placeholder="Contrasenya">
-                <input type="submit" class="fadeIn fourth" value="Entrar">
-              </form>
-          
-              <div id="formFooter">
-                <a class="underlineHover" href="#">Recupera la contrasenya</a>
-              </div>
-            </div>
-          </div>
+      <br>
+      <h1>Registre</h1>
+      <hr>
+      <div class="login">
+        <h1>Registrarse</h1>
+        <form method="post" action="login.php" name=login>
+          <p><input type="text" name="usuari" value="" placeholder="Usuari"></p>
+          <p><input type="password" name="contrasenya" value="" placeholder="Contrasenya"></p>
+          <p><input type="password" name="email" value="" placeholder="E-mail"></p>
+          <p class="submit"><input type="submit" name="commit" value="Enviar"></p>
+        </form>
+      </div>
     </body>
 </html>
+
