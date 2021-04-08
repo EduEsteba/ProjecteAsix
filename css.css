@@ -1,0 +1,16 @@
+.registre_body{
+    background-image: url('OsLU.gif');  
+    background-repeat: no-repeat;
+}
+
+.formulari{
+    background-color: honeydew; 
+    border-radius: 15px;
+}
+
+.center-h {
+    justify-content: center;
+  }
+  .center-v {
+    align-items: center;
+  }
