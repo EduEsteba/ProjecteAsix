@@ -1,13 +1,13 @@
 <?php
 require_once "config.php";
- 
+require_once "db.php";
+
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     if(empty(trim($_POST["user2"]))){
-
     } else{
         $sql = "SELECT id FROM users WHERE username = ?";
         if($stmt = mysqli_prepare($link, $sql)){
@@ -19,11 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    header("location: login.html");
-
                 } else{
                     $username = trim($_POST["user2"]);
-
                 }
             } 
 
@@ -45,51 +42,55 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
+        /*Contrasenya per phpmyadmin usuari
         $caracteres='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         $longpalabra=8;
         for($pass='', $n=strlen($caracteres)-1; strlen($pass) < $longpalabra ; ) {
             $x = rand(0,$n);
             $pass.= $caracteres[$x];
         }
-    
-        $sql = "INSERT INTO users (username, password, pass, site) VALUES (?, ?, ?, ?)";
-         
+
+        Creem l'usuari*/
+        $sql = "INSERT INTO users (username, password,) VALUES (?, ?)";
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $pass, $param_username);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
             
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
-            
+
             if(mysqli_stmt_execute($stmt)){
-                $ruta=('/var/www/' . $param_username);
-                mkdir($ruta, 0755, true);
-
-                $servername = "localhost";
-                $username = "root";
-                $password = "1234";
-
-                $conn2 = new PDO("mysql:host=$servername", $username, $password);
-                $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $createdatabase = "CREATE DATABASE $param_username";
-                $conn2->exec($createdatabase);
-
-                $createuser = "CREATE USER '".$param_username."'@localhost IDENTIFIED BY '".$pass."'";
-                $conn2->exec($createuser);
-
-                $permisos = "GRANT ALL ON $param_username.* TO '".$param_username."'@'localhost'";
-                $conn2->exec($permisos);
-
-                echo $permisos;
-        
-    
-                header('Location: login.html');
+                header("location: login.html");
             } 
+
             mysqli_stmt_close($stmt);
-
-
         }
+
+        /*Creem una base de dades pel site del client
+        $servername = "localhost";
+        $username = "root";
+        $password = "1234";
+
+        $conn = new PDO("mysql:host=$servername", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $createdatabase = "CREATE DATABASE $param_username";
+        $conn->exec($createdatabase);
+
+        /*Creem l'usuari a MYSQL client només amb accent a la seva base de dades
+        $phpmyadmin = $connection->prepare("CREATE USER '$param_username'@'localhost' IDENTIFIED BY '$pass'");
+        $phpmyadmin->execute();
+
+        $permisos = $connection->prepare("GRANT ALL PRIVILEGES ON :dbclient TO '$usuari_actual'@localhost");
+        $permisos -> bindParam(":dbclient", $param_username,PDO::PARAM_STR);
+        $permisos->execute();
+
+        /*CREEM DIRECTORI SITE
+        $ruta=('/etc/var/www/' . $param_username);
+        mkdir($ruta, 0777, true);
+
+        header('Location: login.html');
+        }*/
     }
-    
+    }
     mysqli_close($link);
-}
+
 ?>
