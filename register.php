@@ -79,10 +79,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $permisos = "GRANT ALL ON $param_username.* TO '".$param_username."'@'localhost'";
                 $conn2->exec($permisos);
 
-                echo $permisos;
-        
-    
+                shell_exec('sudo groupadd '.$param_username);
+                shell_exec('sudo useradd '.$param_username.' -p 1234 -g ftp -d '.$ruta.' -s /bin/bash');
+                shell_exec('sudo chown '.$param_username.':'.$param_username.' '.$ruta);
+                shell_exec('sudo /home/eduard/passwd_change.sh '. $param_username. ' 1234');
+                
                 header('Location: login.html');
+
+
             } 
             mysqli_stmt_close($stmt);
 
