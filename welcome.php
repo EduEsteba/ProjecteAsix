@@ -30,25 +30,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <a class="nav-link" href="welcome.php">Inici <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <a class="nav-link" href="#" style="color:black;">Benvingut, <b><?php echo htmlspecialchars($_SESSION["username"]); ?>     </b></a>
-
+    <a class="nav-link" href="#" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
       <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
   </div>
 </nav>
@@ -56,60 +41,57 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <div class="col-auto p-5 text-center">
 <hr>
 <div class="card-columns">
-<div class="card carta">
-    <img src="mysql.svg" class="card-img-top"  width="100px" height="100px">
+  
+<a href="mysql.php">
+<div class="card carta" >
+    <img src="./img/mysql.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
         <h5 class="card-title">MYSQL</h5>
     </div>
  </div>
-
- <div class="card carta">
-    <img src="ftp.svg" class="card-img-top"  width="100px" height="100px">
+</a>
+<div class="card carta">
+    <img src="./img/ftp.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
         <h5 class="card-title">FTP</h5>
     </div>
  </div>
 
  <div class="card carta">
-    <img src="mysql.svg" class="card-img-top"  width="100px" height="100px">
+    <img src="./img/ssl.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">MYSQL</h5>
+        <h5 class="card-title">SSL</h5>
     </div>
  </div>
 </div>
 <hr>
-<hr>
+
 <div class="card-columns">
 <div class="card carta">
-    <img src="mysql.svg" class="card-img-top"  width="100px" height="100px">
+    <img src="./img/wordpress.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">MYSQL</h5>
+        <h5 class="card-title">Wordpress</h5>
     </div>
  </div>
 
  <div class="card carta">
-    <img src="ftp.svg" class="card-img-top"  width="100px" height="100px">
+    <img src="./img/moodle.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">FTP</h5>
+        <h5 class="card-title">Moodle</h5>
     </div>
  </div>
 
  <div class="card carta">
-    <img src="mysql.svg" class="card-img-top"  width="100px" height="100px">
+    <img src="./img/prestashop.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">MYSQL</h5>
+        <h5 class="card-title">Prestashop</h5>
     </div>
  </div>
 </div>
 <hr>
-
         <!--<a href="reset-password.php" class="btn btn-warning">Canviar Contrasenya</a>
         <a href="formulari_nou_site.html" class="btn btn-info">Crear site</a>-->
 </div>
-
 </div>
-
-       
-
 </body>
 </html>
