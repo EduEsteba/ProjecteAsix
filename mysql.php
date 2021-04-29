@@ -45,7 +45,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
     </div>
     <div class="col col-12">
-        <table class="text-center col col-lg-12 h-25  table table-striped table-dark">
+        <table class="text-center col col-lg-12 h-25  table table-striped table-dark table-hover">
             <thead class="thead-dark">
             <tr>
             <th>NOM BASE DE DADES</th>
@@ -81,5 +81,14 @@ while($mostrar = mysqli_fetch_array($result)){
 </div>
 </div>
 <p>Per accedir al PhpMyAdmin,LINK</p>
+
+<?php
+include "config2.php";
+$tamany="SELECT SUM(ROUND(((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024), 2)) AS 'Mida' FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = ".$_SESSION['username'].""; 
+$result2 = mysqli_query($link2,$consulta);
+while ($fila=mysqli_fetch_array($result2)){
+    echo $fila ["TABLES"];
+    }
+?>
 </body>
 </html>

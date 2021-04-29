@@ -67,24 +67,26 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <hr>
 
 <div class="card-columns">
+
+<a href="wordpress.php">
 <div class="card carta">
     <img src="./img/wordpress.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">Wordpress</h5>
+        <h5 class="card-title">Instal·lar Wordpress</h5>
     </div>
  </div>
-
+</a>
  <div class="card carta">
     <img src="./img/moodle.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">Moodle</h5>
+        <h5 class="card-title">Instal·lar Moodle</h5>
     </div>
  </div>
 
  <div class="card carta">
     <img src="./img/prestashop.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
-        <h5 class="card-title">Prestashop</h5>
+        <h5 class="card-title">Instal·lar Prestashop</h5>
     </div>
  </div>
 </div>
