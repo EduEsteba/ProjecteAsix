@@ -1,6 +1,6 @@
 <?php
 define('USER', 'root');
-define('PASSWORD', '1234');
+define('PASSWORD', '');
 define('HOST', 'localhost');
 define('DATABASE', 'projecte');
 

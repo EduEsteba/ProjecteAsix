@@ -30,12 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
-    if(empty(trim($_POST["password2"]))){
-    }
-    else{
-        $password = trim($_POST["password2"]);
-    }
-    
+ 
     if(empty(trim($_POST["confirm_password"]))){
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
@@ -45,24 +40,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
+
         $caracteres='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         $longpalabra=8;
         for($pass='', $n=strlen($caracteres)-1; strlen($pass) < $longpalabra ; ) {
             $x = rand(0,$n);
             $pass.= $caracteres[$x];
         }
-    
-        $sql = "INSERT INTO users (username, password, pass, site) VALUES (?, ?, ?, ?)";
-         
-        if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $pass, $param_username);
+
+        for($passftp='', $n=strlen($caracteres)-1; strlen($passftp) < $longpalabra ; ) {
+            $x = rand(0,$n);
+            $passftp.= $caracteres[$x];
+        }
+
+        $sql1 = "INSERT INTO users (username, password, pass, site, ftp) VALUES (?, ?, ?, ?, ?)";
+        echo "hola";
+
+        if($stmt = mysqli_prepare($link, $sql1)){
+            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $pass, $param_username, $passftp);
             
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
-            
+            echo "hola";
+
             if(mysqli_stmt_execute($stmt)){
                 $ruta=('/var/www/' . $param_username);
                 mkdir($ruta, 0755, true);
+                echo "hola";
 
                 $servername = "localhost";
                 $username = "root";
@@ -82,20 +86,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 shell_exec('sudo groupadd '.$param_username);
                 shell_exec('sudo useradd '.$param_username.' -p 1234 -g ftp -d '.$ruta.' -s /bin/bash');
                 shell_exec('sudo chown '.$param_username.':'.$param_username.' '.$ruta);
-                shell_exec('sudo /home/eduard/passwd_change.sh '. $param_username. ' 1234');
+                shell_exec('sudo /home/eduard/passwd_change.sh '. $param_username.' '.$passftp);
                 shell_exec('sudo /home/eduard/create_site.sh '. $ruta.' '.$param_username.' www.'.$param_username.'.com');
-                shell_exec('a2ensite '.$param_username.'.conf');
-                shell_exec('service apache2 reload');
-
+                shell_exec('sudo a2ensite '.$param_username.'.conf');
+                shell_exec('sudo service apache2 reload');
                 header('Location: login.html');
 
             } 
             mysqli_stmt_close($stmt);
-
-
         }
     }
-    
     mysqli_close($link);
 }
 ?>
