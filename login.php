@@ -68,14 +68,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
+                            header("location: login.html");
+
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
                     $login_err = "Invalid username or password.";
+                    header("location: login.html");
+
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
+                header("location: login.html");
+
             }
 
             // Close statement

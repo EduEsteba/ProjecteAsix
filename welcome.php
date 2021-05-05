@@ -52,12 +52,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
  </div>
 </a>
+<a href="ftp.php">
 <div class="card carta">
     <img src="./img/ftp.svg" class="card-img-top"  width="100px" height="100px">
     <div class="card-body">
         <h5 class="card-title">FTP</h5>
     </div>
  </div>
+</a>
 
  <div class="card carta">
     <img src="./img/ssl.svg" class="card-img-top"  width="100px" height="100px">
