@@ -33,9 +33,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <a class="nav-link" href="welcome.php">Inici <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <a class="nav-link" href="logout.php" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
+    <a class="nav-link" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
   </div>
+  <a class="nav-link" href="logout.php" style="color:black;">      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
+</a>
+  
 </nav>
 <div class="m-0 vh-100 row justify-content-center align-items-center">
 <div class="col-auto p-5 text-center">

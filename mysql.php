@@ -28,13 +28,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="welcome.php">Inici<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="welcome.php">Inici <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <a class="nav-link" href="logout.php" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
+    <a class="nav-link" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
   </div>
-</nav>
+  <a class="nav-link" href="logout.php" style="color:black;">      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
+</a>
+  
+</na
 
     <br>
 <div class="container">
