@@ -23,7 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 } else{
                     $username = trim($_POST["user2"]);
-
                 }
             } 
 
@@ -40,7 +39,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
-
         $caracteres='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         $longpalabra=8;
         for($pass='', $n=strlen($caracteres)-1; strlen($pass) < $longpalabra ; ) {
@@ -54,14 +52,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         $sql1 = "INSERT INTO users (username, password, pass, site, ftp) VALUES (?, ?, ?, ?, ?)";
-        echo "hola";
 
         if($stmt = mysqli_prepare($link, $sql1)){
             mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $pass, $param_username, $passftp);
             
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
-            echo "hola";
 
             if(mysqli_stmt_execute($stmt)){
                 $ruta=('/var/www/' . $param_username);
