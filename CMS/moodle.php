@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="./welcome.php" style="color: white;">Montilivi Host</a>
+  <a class="navbar-brand" href="../welcome.php" style="color: white;">Montilivi Host</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -38,12 +38,37 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </a> 
 </nav>
 
+<div class="container">
+  <div class="row justify-content-center align-items-center minh-100">
+    <div class="col-lg-12">
+      <div>
+      
+<h1>Benvingut al instal·lador de <b>Moodle</b></h1>
+<p>Voleu instal·lar Moodle?</p><br>
+<p>Al clicar sobre el botó es creara una carpeta moodle en el vostre directori</p>
+<a href="" class="btn btn-warning"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
+<br><br>
+<p>Per qualsevol dubte podeu consultar la pàgina oficial de <a href="https://docs.moodle.org/all/es/Instalación_de_Moodle">Moodle</a></p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+.minh-100 {
+  height: 100vh;
+}
+</style>
 
 
-<h1>Benvingut al instal·lador del <b>Moodle</b></h1>
-<p>Voleu instal·lar Moodle?</p>
-<p>Al clicar sobre el botó es creara una carpeta amb el nom de moodle en el vostre directori</p>
-<a href="moodle_install.php" class="btn btn-warning"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
+
+ 
 
 </body>
+
+
+</style>
+
 </html>
