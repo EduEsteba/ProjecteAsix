@@ -1,5 +1,5 @@
 <?php
-require_once "config.php";
+require_once "../config.php";
 session_start();
  
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -11,13 +11,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $sql="SELECT * FROM users where username = '".$_SESSION["username"]."'";
 $result = mysqli_query($link,$sql);
 while($mostrar = mysqli_fetch_array($result)){
-    shell_exec('cp -r /home/eduard/wordpress /var/www/'.$_SESSION["username"].'');
-    shell_exec('sudo /home/eduard/config_wordpress.sh '. $_SESSION["username"].' '.$mostrar['pass']);
+    shell_exec('cp -r /home/eduard/prestashop /var/www/'.$_SESSION["username"].'');
 }
 
 
 
-header('Location: wordpress.php');
+header('Location: prestashop.php');
 
 
 

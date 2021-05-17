@@ -20,30 +20,30 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Montilivi Host</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="./welcome.php" style="color: white;">Montilivi Host</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="welcome.php">Inici <span class="sr-only">(current)</span></a>
-      </li>
+      <!--<li class="nav-item active">
+        <a class="nav-link" href="./welcome.php">Inici <span class="sr-only">(current)</span></a>
+      </li>-->
     </ul>
-    <a class="nav-link" style="color:black;">Benvingut,<b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
+    <a class="nav-link" style="color:white;">Benvingut, <b style="color: #ffff00;"><?php echo htmlspecialchars($_SESSION["username"]); ?></b></a>
   </div>
-  <a class="nav-link" href="logout.php" style="color:black;">      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
+  <a class="nav-link" href="logout.php" style="color:white;">      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>  Sortir</button>
 </a> 
 </nav>
 
 
 
-<p>Benvingut al instal·lar de wordpress</p>
-<p>Voleu instal·lar Wordpress?</p>
-<a href="wordpress_install.php" class="btn btn-warning">Instal·lar</a>
-<button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-sign-out-alt"></i>Instal·lar</button>
+<h1>Benvingut al instal·lador del <b>Moodle</b></h1>
+<p>Voleu instal·lar Moodle?</p>
+<p>Al clicar sobre el botó es creara una carpeta amb el nom de moodle en el vostre directori</p>
+<a href="moodle_install.php" class="btn btn-warning"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
 
 </body>
 </html>
