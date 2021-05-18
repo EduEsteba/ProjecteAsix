@@ -2,7 +2,7 @@
 session_start();
  
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: ./login.html");
     exit;
 }
 ?>
@@ -55,7 +55,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </tr>
         </thead>
 <?php
-require_once "config.php";
+require_once "./DB/config.php";
 $sql="SELECT * FROM users where username = '".$_SESSION["username"]."'";
 $result = mysqli_query($link,$sql);
 while($mostrar = mysqli_fetch_array($result)){
@@ -81,7 +81,7 @@ while($mostrar = mysqli_fetch_array($result)){
 </div>
 </div>
 </div>
-<p>Per accedir al PhpMyAdmin,LINK</p>
+<p>Per accedir al PhpMyAdmin, <b><a href="http://www.montilivihosting.com/phpmyadmin">www.montilivihosting.com/phpmyadmin</a></b></p>
 
 <?php
 include "config2.php";

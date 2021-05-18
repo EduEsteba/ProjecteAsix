@@ -2,7 +2,7 @@
 session_start();
  
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: ./login.html");
     exit;
 }
 ?>
@@ -49,20 +49,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <table class="text-center col col-lg-12 h-25  table table-striped table-dark table-hover">
             <thead class="thead-dark">
             <tr>
-            <th>IP SERVIDOR</th>
+            <th>SERVIDOR</th>
             <th>USUARI</th>
             <th>CONTRASENYA</th>
             <th>ESTAT</th>
             </tr>
         </thead>
 <?php
-require_once "config.php";
+require_once "./DB/config.php";
 $sql="SELECT * FROM users where username = '".$_SESSION["username"]."'";
 $result = mysqli_query($link,$sql);
 while($mostrar = mysqli_fetch_array($result)){
 ?>
 <tr>
-<td><?php echo $_SERVER['REMOTE_ADDR'];?></td>
+<td><?php echo $_SESSION["username"];?>.com</td>
 <td><?php echo $mostrar['username'];?></td>
 <td><?php echo $mostrar['ftp'];?></td>
 <td><b><?php  if($link == false){
