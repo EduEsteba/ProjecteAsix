@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             if(mysqli_stmt_execute($stmt)){
                 session_destroy();
-                header("location: login.php");
+                header("location: login.html");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -75,26 +75,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <h2>Reset Password</h2>
-        <p>Please fill out this form to reset your password.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+
+<body class="text-center" >
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="border-radius:0 !important";>
+  <a class="navbar-brand" href="./welcome.php" style="color: white;">Montilivi Host</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <li class="nav-item dropdown ml-auto">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+        Benvingut, <b style="color: #ffff00;"><?php echo htmlspecialchars($_SESSION["username"]); ?></b>        
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="reset-password.php">Canviar la contrasenya</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" style="color: red ;" href="./logout.php"><i class="fas fa-sign-out-alt"></i>Tancar la sessió</a>
+        </div>
+      </li>
+</a> 
+</nav>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-4" style="background-color: honeydew; border-radius: 15px;">
+                <br>
+                <h1>Canvi de contrasenya</h1>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
             <div class="form-group">
-                <label>New Password</label>
+                <label>Contrasenya</label>
                 <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
                 <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
             </div>
             <div class="form-group">
-                <label>Confirm Password</label>
+                <label>Torna a escriure la contrasenya</label>
                 <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link ml-2" href="./welcome.php">Cancel</a>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+                <a class="btn btn-link ml-2" href="welcome.php">Cancelar</a>
             </div>
         </form>
-    </div>    
+            </div>
+        </div>
+        <br>
+    </div>
+    </div>
 </body>
 </html>
