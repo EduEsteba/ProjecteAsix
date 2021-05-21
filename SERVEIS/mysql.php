@@ -59,9 +59,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <table class="text-center col col-lg-12 h-25  table table-striped table-dark table-hover">
             <thead class="thead-dark">
             <tr>
-            <th>NOM BASE DE DADES</th>
-            <th>CONTRASENYA</th>
-            <th>ESTAT</th>
+            <th style="text-align: center !important;">NOM BASE DE DADES</th>
+            <th style="text-align: center !important;">CONTRASENYA</th>
+            <th style="text-align: center !important;">ESTAT</th>
             </tr>
         </thead>
 <?php
@@ -71,16 +71,15 @@ $result = mysqli_query($link,$sql);
 while($mostrar = mysqli_fetch_array($result)){
 ?>
 <tr>
-<td><?php echo $mostrar['username'];?></a></td>
-<td><?php echo $mostrar['pass'];?></a></td>
-<td><b><?php  if($link == false){
+<td style="background-color: #454d55 !important;"><?php echo $mostrar['username'];?></a></td>
+<td style="background-color: #454d55 !important;"><?php echo $mostrar['pass'];?></a></td>
+<td style="background-color: #454d55 !important;"><b><?php  if($link == false){
        echo "<p style='color: red';>Inactiu</p>";
     }else{
         echo "<p style='color: #03fc03';>Actiu</p>";
 
     }?></b></a>
 </td>
-<td></td>
 </tr>
 <?php
 }

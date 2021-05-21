@@ -14,9 +14,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet" href="./css/welcome.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
 
     <style>
         body{ font: 14px sans-serif; text-align: center; overflow: hidden;}
+       
     </style>
 </head>
 <body>
@@ -46,7 +55,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <h1>Benvingut al instal·lador de <b>Moodle</b></h1>
 <p>Voleu instal·lar Moodle?</p><br>
 <p>Al clicar sobre el botó es creara una carpeta moodle en el vostre directori</p>
-<a href="" class="btn btn-warning"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
+<a href="" class="btn btn-warning" style="color: black !important;"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
 <br><br>
 <p>Per qualsevol dubte podeu consultar la pàgina oficial de <a href="https://docs.moodle.org/all/es/Instalación_de_Moodle">Moodle</a></p>
       </div>

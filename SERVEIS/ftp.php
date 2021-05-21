@@ -56,13 +56,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
     </div>
     <div class="col col-12">
-        <table class="text-center col col-lg-12  table table-striped table-dark table-hover">
+        <table class="text-center col col-lg-12  table table-striped table-dark table-hover" style="text-align: center !important;">
             <thead class="thead-dark">
             <tr>
-            <th>SERVIDOR</th>
-            <th>USUARI</th>
-            <th>CONTRASENYA</th>
-            <th>ESTAT</th>
+            <th style="text-align: center !important;">SERVIDOR</th>
+            <th style="text-align: center !important;">USUARI</th>
+            <th style="text-align: center !important;">CONTRASENYA</th>
+            <th style="text-align: center !important;">ESTAT</th>
             </tr>
         </thead>
 <?php
@@ -71,18 +71,17 @@ $sql="SELECT * FROM users where username = '".$_SESSION["username"]."'";
 $result = mysqli_query($link,$sql);
 while($mostrar = mysqli_fetch_array($result)){
 ?>
-<tr background:c>
-<td ><?php echo $_SESSION["username"];?>.com</td>
-<td><?php echo $mostrar['username'];?></td>
-<td><?php echo $mostrar['ftp'];?></td>
-<td><b><?php  if($link == false){
+<tr style="background-color: #454d55 !important;">
+<td style="background-color: #454d55 !important;"><?php echo $_SESSION["username"];?>.com</td>
+<td style="background-color: #454d55 !important;"><?php echo $mostrar['username'];?></td>
+<td style="background-color: #454d55 !important;"><?php echo $mostrar['ftp'];?></td>
+<td style="background-color: #454d55 !important;"><b><?php  if($link == false){
        echo "<p style='color: red';>Inactiu</p>";
     }else{
         echo "<p style='color: #03fc03';>Actiu</p>";
 
     }?></b></a>
 </td>
-<td></td>
 </tr>
 <?php
 }

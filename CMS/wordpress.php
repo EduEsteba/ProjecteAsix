@@ -55,7 +55,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <h1>Benvingut al instal·lador de <b>Wordpress</b></h1>
 <p>Voleu instal·lar Wordpress?</p><br>
 <p>Al clicar sobre el botó es creara una carpeta wordpress en el vostre directori</p>
-<a href="../CMS/wordpress_install.php" class="btn btn-warning"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
+<a href="../CMS/wordpress_install.php" class="btn btn-warning" style="color: black;"><i class="fas fa-level-up-alt"></i>  Instal·lar</a>
 <br><br>
 <p>Per qualsevol dubte podeu consultar la pàgina oficial de <a href="https://wordpress.com/es/">Wordpress</a></p>
       </div>
