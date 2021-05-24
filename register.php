@@ -110,6 +110,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 shell_exec('sudo groupadd '.$param_username);
                 shell_exec('sudo useradd '.$param_username.' -p 1234 -g ftp -d '.$ruta.' -s /bin/bash');
                 shell_exec('sudo chown '.$param_username.':'.$param_username.' '.$ruta);
+
+
+                //shell_exec('sudo openssl genrsa -out /certificats/'.$param_username.'.key 2048');
+                //shell_exec('sudo openssl req -new -key /certificats/'.$param_username.'.key -out /certificats/'.$param_username.'.csr');
+                //shell_exec('sudo openssl x509 -CA /certificats/projecte.crt -CAkey /certificats/projecte.key -req -in /certificats/'.$param_username.'.csr -days 365 -CAcreateserial -sha256 -out /certificats/'.$param_username.'.crt');
+
+                shell_exec('/scripts/certificats.sh '.$param_username);
+
                 shell_exec('sudo /passwd_change.sh '. $param_username.' '.$passftp);
                 shell_exec('sudo /create_site.sh '. $ruta.' '.$param_username.' www.'.$param_username.'.com');
                 shell_exec('sudo a2ensite '.$param_username.'.conf');
