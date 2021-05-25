@@ -30,11 +30,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = "This username is already taken.";
+                    header("location: login.html");
+
                 } else{
                     $username = trim($_POST["user2"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
+                header("location: login.html");
+
             }
 
             // Close statement
@@ -44,20 +48,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Validate password
     if(empty(trim($_POST["password2"]))){
-        $password_err = "Please enter a password.";     
+        $password_err = "Please enter a password.";
+        header("location: login.html");
+     
     } elseif(strlen(trim($_POST["password2"])) < 6){
         $password_err = "Password must have atleast 6 characters.";
+        header("location: login.html");
+
     } else{
         $password = trim($_POST["password2"]);
     }
     
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "Please confirm password.";
+        header("location: login.html");
+     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
+            header("location: login.html");
+
         }
     }
     

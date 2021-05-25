@@ -14,19 +14,19 @@ $new_password_err = $confirm_password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty(trim($_POST["new_password"]))){
-        $new_password_err = "Please enter the new password.";     
+        $new_password_err = "Fica la nova contrasenya";     
     } elseif(strlen(trim($_POST["new_password"])) < 6){
-        $new_password_err = "Password must have atleast 6 characters.";
+        $new_password_err = "La contrasenya ha de tenir 6 caracters";
     } else{
         $new_password = trim($_POST["new_password"]);
     }
     
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm the password.";
+        $confirm_password_err = "Siusplau confirma la contrasenya";
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($new_password_err) && ($new_password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "Les contrasenyes no coincideixen";
         }
     }
         
@@ -45,6 +45,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
+                header("location: login.html");
+
             }
             mysqli_stmt_close($stmt);
         }
@@ -120,5 +122,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <br>
     </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
